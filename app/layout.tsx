@@ -2,22 +2,25 @@ import type { Metadata } from 'next'
 import { Figtree } from 'next/font/google'
 
 import './globals.css'
+import SupabaseProvider from '@/providers/supabase-provider'
 
 import Sidebar from '@/components/sidebar'
 
 const font = Figtree({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Spotiplay | Place to play your favorite music',
-  description: 'Spotiplay is a place to play your favorite music',
+   title: 'Spotiplay | Place to play your favorite music',
+   description: 'Spotiplay is a place to play your favorite music',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang='en'>
-      <body className={font.className} suppressHydrationWarning={true}>
-        <Sidebar>{children}</Sidebar>
-      </body>
-    </html>
-  )
+   return (
+      <html lang='en'>
+         <body className={font.className} suppressHydrationWarning={true}>
+            <SupabaseProvider>
+               <Sidebar>{children}</Sidebar>
+            </SupabaseProvider>
+         </body>
+      </html>
+   )
 }
