@@ -5,6 +5,7 @@ import './globals.css'
 import SupabaseProvider from '@/providers/supabase-provider'
 
 import Sidebar from '@/components/sidebar'
+import UserProvider from '@/providers/user-provider'
 
 const font = Figtree({ subsets: ['latin'] })
 
@@ -18,7 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang='en'>
          <body className={font.className} suppressHydrationWarning={true}>
             <SupabaseProvider>
-               <Sidebar>{children}</Sidebar>
+               <UserProvider>
+                  <Sidebar>{children}</Sidebar>
+               </UserProvider>
             </SupabaseProvider>
          </body>
       </html>
