@@ -10,6 +10,8 @@ import ToasterProvider from '@/providers/toaster-provider'
 
 import Sidebar from '@/components/sidebar'
 
+import getSongByUserId from '@/actions/get-song-by-user-id'
+
 const font = Figtree({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -17,7 +19,11 @@ export const metadata: Metadata = {
    description: 'Spotiplay is a place to play your favorite music',
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const revalidate = 0
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+   const userSongs = await getSongByUserId()
+
    return (
       <html lang='en'>
          <body className={font.className} suppressHydrationWarning={true}>
@@ -26,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                <UserProvider>
                   <ModalProvider />
                   {/* Layout Sidebar */}
-                  <Sidebar>{children}</Sidebar>
+                  <Sidebar songs={userSongs}>{children}</Sidebar>
                </UserProvider>
             </SupabaseProvider>
          </body>

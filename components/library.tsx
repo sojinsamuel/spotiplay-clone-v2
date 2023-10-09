@@ -7,7 +7,13 @@ import { useUser } from '@/hooks/use-user'
 import useAuthModal from '@/hooks/use-auth-modal'
 import useUploadModal from '@/hooks/use-upload-modal'
 
-const Library = () => {
+import { Song } from '@/types/general-types'
+
+interface ILibraryProps {
+   songs: Song[]
+}
+
+const Library: React.FC<ILibraryProps> = ({ songs }) => {
    const authModal = useAuthModal()
    const uploadModal = useUploadModal()
    const { user, subscription } = useUser()
@@ -34,7 +40,11 @@ const Library = () => {
                className='transition cursor-pointer text-neutral-400 hover:text-white'
             />
          </div>
-         <div className='flex flex-col px-5 mt-4 gap-y-2'>List of songs</div>
+         <div className='flex flex-col px-5 mt-4 gap-y-2'>
+            {songs.map((song) => (
+               <div key={song.id}>{song.title}</div>
+            ))}
+         </div>
       </div>
    )
 }

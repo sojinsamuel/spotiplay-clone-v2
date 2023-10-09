@@ -9,11 +9,14 @@ import Box from './box'
 import SidebarItem from './sidebar-item'
 import Library from './library'
 
+import { Song } from '@/types/general-types'
+
 interface ISidebarProps {
    children?: React.ReactNode
+   songs: Song[]
 }
 
-const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
+const Sidebar: React.FC<ISidebarProps> = ({ children, songs }) => {
    const pathname = usePathname()
 
    const routes = useMemo(
@@ -40,7 +43,7 @@ const Sidebar: React.FC<ISidebarProps> = ({ children }) => {
                </div>
             </Box>
             <Box className='h-full overflow-y-auto'>
-               <Library />
+               <Library songs={songs}/>
             </Box>
          </div>
          {/* main content */}
