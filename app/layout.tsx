@@ -25,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SupabaseProvider>
                <UserProvider>
                   <ModalProvider />
+                  {/* Layout Sidebar */}
                   <Sidebar>{children}</Sidebar>
                </UserProvider>
             </SupabaseProvider>
