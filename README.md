@@ -16,3 +16,6 @@ This is a music player for Spotify playlists. It is built with Nextjs, React, an
 -  [stripe](https://stripe.com/) - Stripe for payments (npm install stripe)
 -  [@radix-ui/react-dialog](https://www.npmjs.com/package/@radix-ui/react-dialog) - Dialog component (npm install @radix-ui/react-dialog)
 -  [zustand](https://www.npmjs.com/package/zustand) - State management (npm install zustand)
+-  [react-hot-toast](https://www.npmjs.com/package/react-hot-toast) - Toast notifications (npm install react-hot-toast)
+
+## Features and Functionality
