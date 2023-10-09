@@ -1,4 +1,10 @@
-export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[]
+export type Json =
+   | string
+   | number
+   | boolean
+   | null
+   | { [key: string]: Json | undefined }
+   | Json[]
 
 export interface Database {
    public: {
@@ -137,8 +143,8 @@ export interface Database {
                author: string | null
                created_at: string
                id: number
-               'image-path': string | null
-               'song-path': string | null
+               image_path: string | null
+               song_path: string | null
                title: string | null
                user_id: string | null
             }
@@ -146,8 +152,8 @@ export interface Database {
                author?: string | null
                created_at?: string
                id?: number
-               'image-path'?: string | null
-               'song-path'?: string | null
+               image_path?: string | null
+               song_path?: string | null
                title?: string | null
                user_id?: string | null
             }
@@ -155,8 +161,8 @@ export interface Database {
                author?: string | null
                created_at?: string
                id?: number
-               'image-path'?: string | null
-               'song-path'?: string | null
+               image_path?: string | null
+               song_path?: string | null
                title?: string | null
                user_id?: string | null
             }
