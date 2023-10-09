@@ -27,6 +27,7 @@ export const MyUserContextProvider = (props: Props) => {
    } = useSessionContext()
    const user = useSupaUser()
    const accessToken = session?.access_token ?? null
+
    const [isLoadingData, setIsloadingData] = useState(false)
    const [userDetails, setUserDetails] = useState<UserDetails | null>(null)
    const [subscription, setSubscription] = useState<Subscription | null>(null)
