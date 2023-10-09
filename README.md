@@ -2,6 +2,10 @@
 
 This is a music player for Spotify playlists. It is built with Nextjs, React, and Typescript.
 
+<!-- Image Of Application -->
+
+## Features and Functionality
+
 ## Getting Started
 
 -  [React-icons](https://react-icons.github.io/react-icons/) - Icons for the app
@@ -21,5 +25,3 @@ This is a music player for Spotify playlists. It is built with Nextjs, React, an
 -  [react-hook-form](https://www.npmjs.com/package/react-hook-form) - Form validation (npm install react-hook-form)
 -  [uniqid](https://www.npmjs.com/package/uniqid) - Unique id generator (npm install uniqid)
 -  [@types/uniqid](https://www.npmjs.com/package/@types/uniqid) - Types for uniqid (npm install -D @types/uniqid)
-
-## Features and Functionality
