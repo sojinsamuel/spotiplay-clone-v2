@@ -20,7 +20,11 @@ export interface Props {
 export const UserContext = createContext<UserContextType | undefined>(undefined)
 
 export const MyUserContextProvider = (props: Props) => {
-   const { session, isLoading: isLoadingUser, supabaseClient: supabase } = useSessionContext()
+   const {
+      session,
+      isLoading: isLoadingUser,
+      supabaseClient: supabase,
+   } = useSessionContext()
    const user = useSupaUser()
    const accessToken = session?.access_token ?? null
    const [isLoadingData, setIsloadingData] = useState(false)
@@ -45,6 +49,7 @@ export const MyUserContextProvider = (props: Props) => {
                setUserDetails(userDetailsPromise.value.data as UserDetails)
             if (subscriptionPromise.status === 'fulfilled')
                setSubscription(subscriptionPromise.value.data as Subscription)
+
             setIsloadingData(false)
          })
       } else if (!user && !isLoadingUser && !isLoadingData) {
@@ -69,8 +74,6 @@ export const MyUserContextProvider = (props: Props) => {
 
 export const useUser = () => {
    const context = useContext(UserContext)
-   if (context === undefined) {
-      throw new Error(`useUser must be used within a MyUserContextProvider.`)
-   }
+   if (context === undefined) throw new Error(`useUser must in a MyUserContextProvider.`)
    return context
 }
