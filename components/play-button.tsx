@@ -1,6 +1,6 @@
 import { FaPlay } from 'react-icons/fa'
 
-const PlayButton = () => {
+export default function PlayButton() {
    return (
       <button
          onClick={() => {}}
@@ -9,5 +9,3 @@ const PlayButton = () => {
       </button>
    )
 }
-
-export default PlayButton

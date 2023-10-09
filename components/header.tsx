@@ -19,7 +19,7 @@ interface IHeaderProps {
    className?: string
 }
 
-const Header: React.FC<IHeaderProps> = ({ children, className }) => {
+export default function Header({ children, className }: IHeaderProps) {
    const router = useRouter()
    const authModal = useAuthModal()
 
@@ -29,7 +29,7 @@ const Header: React.FC<IHeaderProps> = ({ children, className }) => {
    const handleLogOut = async () => {
       // handle logout
       const { error } = await supabaseClient.auth.signOut()
-      // TODO: reset any playing songs
+      // reset any playing songs
       router.refresh()
 
       if (error) toast.error(error.message)
@@ -42,21 +42,21 @@ const Header: React.FC<IHeaderProps> = ({ children, className }) => {
             <div className='items-center hidden md:flex gap-x-2'>
                <button
                   onClick={() => router.back()}
-                  className='flex items-center justify-center transition bg-black rounded-full hover:opacity-75'>
+                  className='flex items-center justify-center bg-black rounded-full transition hover:opacity-75'>
                   <RxCaretLeft size={32} className='text-white' />
                </button>
                <button
                   onClick={() => router.forward()}
-                  className='flex items-center justify-center transition bg-black rounded-full hover:opacity-75'>
+                  className='flex items-center justify-center bg-black rounded-full transition hover:opacity-75'>
                   <RxCaretRight size={32} className='text-white' />
                </button>
             </div>
             {/* responsive */}
             <div className='flex items-center md:hidden gap-x-2'>
-               <button className='flex items-center justify-center p-2 transition bg-white rounded-full hover:opacity-75'>
+               <button className='flex items-center justify-center p-2 bg-white rounded-full transition hover:opacity-75'>
                   <HiHome className='text-black' size={20} />
                </button>
-               <button className='flex items-center justify-center p-2 transition bg-white rounded-full hover:opacity-75'>
+               <button className='flex items-center justify-center p-2 bg-white rounded-full transition hover:opacity-75'>
                   <BiSearch className='text-black' size={20} />
                </button>
             </div>
@@ -96,5 +96,3 @@ const Header: React.FC<IHeaderProps> = ({ children, className }) => {
       </div>
    )
 }
-
-export default Header

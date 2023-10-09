@@ -10,7 +10,7 @@ interface IListItemProps {
    href: string
 }
 
-const ListItem: React.FC<IListItemProps> = ({ name, image, href }) => {
+export default function ListItem({ name, image, href }: IListItemProps) {
    const router = useRouter()
 
    const onClick = () => {
@@ -32,5 +32,3 @@ const ListItem: React.FC<IListItemProps> = ({ name, image, href }) => {
       </button>
    )
 }
-
-export default ListItem

@@ -16,7 +16,7 @@ export default async function Home() {
          <Header>
             <div className='mb-2'>
                <h1 className='text-3xl font-semibold text-white'>Welcome Back</h1>
-               <div className='grid grid-cols-1 gap-3 mt-4 sm:grid-cols-1 xl:grid-cols-3'>
+               <div className='mt-4 grid grid-cols-1 gap-3 sm:grid-cols-1 xl:grid-cols-3'>
                   <ListItem image='/images/liked.png' name='Liked Song' href='liked' />
                </div>
             </div>

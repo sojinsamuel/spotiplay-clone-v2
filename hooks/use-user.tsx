@@ -19,7 +19,7 @@ export interface Props {
 
 export const UserContext = createContext<UserContextType | undefined>(undefined)
 
-export const MyUserContextProvider = (props: Props) => {
+export function MyUserContextProvider(props: Props) {
    const {
       session,
       isLoading: isLoadingUser,
@@ -73,7 +73,7 @@ export const MyUserContextProvider = (props: Props) => {
    return <UserContext.Provider value={value} {...props} />
 }
 
-export const useUser = () => {
+export function useUser() {
    const context = useContext(UserContext)
    if (context === undefined) throw new Error(`useUser must in a MyUserContextProvider.`)
    return context

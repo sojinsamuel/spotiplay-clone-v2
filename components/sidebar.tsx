@@ -16,18 +16,13 @@ interface ISidebarProps {
    songs: Song[]
 }
 
-const Sidebar: React.FC<ISidebarProps> = ({ children, songs }) => {
+export default function Sidebar({ children, songs }: ISidebarProps) {
    const pathname = usePathname()
 
    const routes = useMemo(
       () => [
          { icon: HiHome, label: 'Home', active: pathname !== '/active', href: '/' },
-         {
-            icon: BiSearch,
-            label: 'Search',
-            active: pathname === '/search',
-            href: '/search',
-         },
+         { icon: BiSearch, label: 'Search', active: pathname === '/search', href: '/search' },
       ],
       [pathname]
    )
@@ -51,5 +46,3 @@ const Sidebar: React.FC<ISidebarProps> = ({ children, songs }) => {
       </div>
    )
 }
-
-export default Sidebar

@@ -13,7 +13,7 @@ interface ISongItemProps {
    onClick: (id: string) => void
 }
 
-const SongItem: React.FC<ISongItemProps> = ({ data, onClick }) => {
+export default function SongItem({ data, onClick }: ISongItemProps) {
    const imagePath = useLoadImage(data)
 
    return (
@@ -21,18 +21,11 @@ const SongItem: React.FC<ISongItemProps> = ({ data, onClick }) => {
          onClick={() => onClick(data.id)}
          className='relative flex flex-col items-center justify-center p-3 overflow-hidden transition rounded-md cursor-pointer gap-x-4 bg-neutral-400/5 hover:bg-neutral-400/10 group'>
          <div className='relative w-full h-full overflow-hidden rounded-md aspect-square'>
-            <Image
-               className='object-cover'
-               src={imagePath || '/images/liked.png'}
-               alt='Image Song'
-               fill
-            />
+            <Image className='object-cover' src={imagePath || '/images/liked.png'} alt='Image Song' fill />
          </div>
          <div className='flex flex-col items-start w-full py-4 gap-y-1'>
             <p className='w-full font-semibold text-white truncate'>{data.title}</p>
-            <p className='w-full pb-3 text-sm truncate text-neutral-400'>
-               By {data.author}
-            </p>
+            <p className='w-full pb-3 text-sm truncate text-neutral-400'>By {data.author}</p>
          </div>
          <div className='absolute text-white bottom-24 right-5'>
             <PlayButton />
@@ -40,5 +33,3 @@ const SongItem: React.FC<ISongItemProps> = ({ data, onClick }) => {
       </div>
    )
 }
-
-export default SongItem

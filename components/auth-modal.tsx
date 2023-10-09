@@ -10,7 +10,7 @@ import useAuthModal from '@/hooks/use-auth-modal'
 
 import Modal from './modal'
 
-const AuthModal = () => {
+export default function AuthModal() {
    const supabaseClient = useSupabaseClient()
    const router = useRouter()
    const { session } = useSessionContext()
@@ -49,5 +49,3 @@ const AuthModal = () => {
       </Modal>
    )
 }
-
-export default AuthModal

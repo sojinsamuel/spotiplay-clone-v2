@@ -13,7 +13,7 @@ interface ILibraryProps {
    songs: Song[]
 }
 
-const Library: React.FC<ILibraryProps> = ({ songs }) => {
+export default function Library({ songs }: ILibraryProps) {
    const authModal = useAuthModal()
    const uploadModal = useUploadModal()
    const { user, subscription } = useUser()
@@ -21,7 +21,7 @@ const Library: React.FC<ILibraryProps> = ({ songs }) => {
    const onClick = () => {
       if (!user) return authModal.onOpen()
 
-      // TODO: check if user has subscription
+      // todo: check if user has subscription
 
       // upload modal
       return uploadModal.onOpen()
@@ -37,7 +37,7 @@ const Library: React.FC<ILibraryProps> = ({ songs }) => {
             <AiOutlinePlus
                onClick={onClick}
                size={20}
-               className='transition cursor-pointer text-neutral-400 hover:text-white'
+               className='cursor-pointer transition text-neutral-400 hover:text-white'
             />
          </div>
          <div className='flex flex-col px-5 mt-4 gap-y-2'>
@@ -48,5 +48,3 @@ const Library: React.FC<ILibraryProps> = ({ songs }) => {
       </div>
    )
 }
-
-export default Library

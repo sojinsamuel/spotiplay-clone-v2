@@ -10,12 +10,12 @@ interface SupabaseProviderProps {
    children: React.ReactNode
 }
 
-const SupabaseProvider: React.FC<SupabaseProviderProps> = ({ children }) => {
+export default function SupabaseProvider({ children }: SupabaseProviderProps) {
    const [supabaseClient] = useState(() => createClientComponentClient<Database>())
 
    return (
-      <SessionContextProvider supabaseClient={supabaseClient}>{children}</SessionContextProvider>
+      <SessionContextProvider supabaseClient={supabaseClient}>
+         {children}
+      </SessionContextProvider>
    )
 }
-
-export default SupabaseProvider

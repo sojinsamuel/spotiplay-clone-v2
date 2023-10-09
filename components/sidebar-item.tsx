@@ -9,12 +9,7 @@ interface ISidebarItemProps {
    href: string
 }
 
-const SidebarItem: React.FC<ISidebarItemProps> = ({
-   icon: Icon,
-   label,
-   active,
-   href,
-}) => {
+export default function SidebarItem({ icon: Icon, label, active, href }: ISidebarItemProps) {
    return (
       <Link
          href={href}
@@ -27,5 +22,3 @@ const SidebarItem: React.FC<ISidebarItemProps> = ({
       </Link>
    )
 }
-
-export default SidebarItem
