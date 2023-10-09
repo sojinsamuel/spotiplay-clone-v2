@@ -1,4 +1,4 @@
--- Stripe DB schema
+-- Stripe DB code
 /**
 * USERS
 * Note: This table contains user data. Users should only be able to view and update their own data.
