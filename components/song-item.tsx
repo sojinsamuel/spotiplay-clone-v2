@@ -19,7 +19,7 @@ const SongItem: React.FC<ISongItemProps> = ({ data, onClick }) => {
    return (
       <div
          onClick={() => onClick(data.id)}
-         className='relative flex flex-col items-center justify-center p-3 overflow-hidden cursor-pointer transition rounded-md gap-x-4 bg-neutral-400/5 hover:bg-neutral-400/10 group'>
+         className='relative flex flex-col items-center justify-center p-3 overflow-hidden transition rounded-md cursor-pointer gap-x-4 bg-neutral-400/5 hover:bg-neutral-400/10 group'>
          <div className='relative w-full h-full overflow-hidden rounded-md aspect-square'>
             <Image
                className='object-cover'
