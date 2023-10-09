@@ -3,7 +3,7 @@ import { useEffect, useState, createContext, useContext, useMemo } from 'react'
 import { useUser as useSupaUser, useSessionContext } from '@supabase/auth-helpers-react'
 import { User } from '@supabase/auth-helpers-nextjs'
 
-import { UserDetails, Subscription } from '@/types/stripe-types'
+import { UserDetails, Subscription } from '@/types/general-types'
 
 type UserContextType = {
    accessToken: string | null
